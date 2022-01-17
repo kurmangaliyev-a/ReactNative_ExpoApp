@@ -3,8 +3,11 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, FlatList } from "react-native";
 import { Navbar } from "./src/components/navbar/Navbar";
 import { MainsScreen } from "./src/screens/MainScreen";
+import { TodoScreen } from "./src/screens/TodoScreen";
 
 export default function App() {
+  const [todoId, setTodoId] = useState(null);
+
   const [todos, setTodos] = useState([
     { id: 1, title: "hello world" },
     { id: 2, title: "hello world" },
@@ -42,15 +45,22 @@ export default function App() {
       })
     );
   };
+
+  let content = (
+    <MainsScreen
+      todos={todos}
+      addTodo={addTodo}
+      removeTodo={removeTodo}
+    ></MainsScreen>
+  );
+
+  if (todoId) {
+    content = <TodoScreen></TodoScreen>;
+  }
   return (
     <View>
       <Navbar title="Todo App!"></Navbar>
-      <View style={styles.container}></View>
-      <MainsScreen
-        todos={todos}
-        addTodo={addTodo}
-        removeTodo={removeTodo}
-      ></MainsScreen>
+      <View style={styles.container}>{content}</View>
       <StatusBar style="auto" />
     </View>
   );
