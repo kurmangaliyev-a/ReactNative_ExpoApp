@@ -3,7 +3,7 @@ import { AddTodo } from "../components/addTodo/AddTodo";
 import { Todo } from "../components/todo/Todo";
 import { StyleSheet, View, FlatList } from "react-native";
 
-export const MainsScreen = ({ addTodo, todos, removeTodo }) => {
+export const MainsScreen = ({ addTodo, todos, removeTodo, openTodo }) => {
   return (
     <View>
       <AddTodo onSubmit={addTodo}></AddTodo>
@@ -12,7 +12,7 @@ export const MainsScreen = ({ addTodo, todos, removeTodo }) => {
         keyExtractor={(item) => item.id.toString()}
         data={todos}
         renderItem={({ item }) => (
-          <Todo todo={item} onRemove={removeTodo}></Todo>
+          <Todo todo={item} onRemove={removeTodo} onOpen={openTodo}></Todo>
         )}
       ></FlatList>
     </View>

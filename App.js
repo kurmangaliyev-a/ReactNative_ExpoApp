@@ -51,11 +51,18 @@ export default function App() {
       todos={todos}
       addTodo={addTodo}
       removeTodo={removeTodo}
+      openTodo={setTodoId}
     ></MainsScreen>
   );
 
   if (todoId) {
-    content = <TodoScreen></TodoScreen>;
+    const selectedTodo = todos.find((todo) => todo.id === todoId);
+    content = (
+      <TodoScreen
+        todo={selectedTodo}
+        goBack={() => setTodoId(null)}
+      ></TodoScreen>
+    );
   }
   return (
     <View>
