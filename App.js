@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import * as Font from "expo-font";
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Alert, FlatList } from "react-native";
+import { StatusBar } from "expo-status-bar";
+import AppLoading from "expo-app-loading";
+
 import { Navbar } from "./src/components/navbar/Navbar";
 import { MainsScreen } from "./src/screens/MainScreen";
 import { TodoScreen } from "./src/screens/TodoScreen";
@@ -17,6 +19,17 @@ export default function App() {
   const [todoId, setTodoId] = useState(null);
 
   const [todos, setTodos] = useState([{ id: 1, title: "hello world" }]);
+  const [isReady, setIsReady] = useState(false);
+
+  if (!isReady) {
+    return (
+      <AppLoading
+        startAsync={loadApplication}
+        onFinish={() => setIsReady(true)}
+        onError={console.warn}
+      />
+    );
+  }
 
   const addTodo = (title) => {
     //const newTodo = {
