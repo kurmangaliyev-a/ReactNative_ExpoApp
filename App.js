@@ -34,7 +34,16 @@ export default function App() {
       },
     ]);
   };
-
+  const updateTodo = (newTodo) => {
+    setTodos((old) =>
+      old.map((todo) => {
+        if (todo.id === newTodo.id) {
+          todo = newTodo;
+        }
+        return todo;
+      })
+    );
+  };
   const removeTodo = (id) => {
     const selectedTodo = todos.find((todo) => todo.id === id);
     console.log(selectedTodo.title);
@@ -90,6 +99,7 @@ export default function App() {
         todo={selectedTodo}
         goBack={() => setTodoId(null)}
         onRemove={removeTodo}
+        onSave={updateTodo}
       ></TodoScreen>
     );
   }

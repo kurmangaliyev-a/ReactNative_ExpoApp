@@ -4,7 +4,7 @@ import { THEME } from "../theme";
 import { AppCard } from "../components/ui/AppCard";
 import { EditModal } from "../components/EditModal";
 
-export const TodoScreen = ({ goBack, todo, onRemove }) => {
+export const TodoScreen = ({ goBack, todo, onRemove, onSave }) => {
   const [modal, setModal] = useState(false);
 
   return (
@@ -15,6 +15,10 @@ export const TodoScreen = ({ goBack, todo, onRemove }) => {
           setModal(false);
         }}
         todo={todo}
+        onSave={(todo) => {
+          onSave(todo);
+          setModal(false);
+        }}
       ></EditModal>
       <AppCard style={styles.card}>
         <Text style={styles.title}> {todo.title}</Text>
