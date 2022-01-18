@@ -1,9 +1,17 @@
 import React, { useState } from "react";
+import * as Font from "expo-font";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Alert, FlatList } from "react-native";
 import { Navbar } from "./src/components/navbar/Navbar";
 import { MainsScreen } from "./src/screens/MainScreen";
 import { TodoScreen } from "./src/screens/TodoScreen";
+
+async function loadApplication() {
+  await Font.loadAsync({
+    "roboto-regular": require("./assets/fonts/Roboto-Regular.ttf"),
+    "roboto-bold": require("./assets/fonts/Roboto-Bold.ttf"),
+  });
+}
 
 export default function App() {
   const [todoId, setTodoId] = useState(null);
@@ -39,7 +47,6 @@ export default function App() {
   };
   const removeTodo = (id) => {
     const selectedTodo = todos.find((todo) => todo.id === id);
-    console.log(selectedTodo.title);
 
     Alert.alert(
       "Удаление элемента",
