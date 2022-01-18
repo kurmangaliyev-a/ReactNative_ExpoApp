@@ -6,16 +6,9 @@ import { MainsScreen } from "./src/screens/MainScreen";
 import { TodoScreen } from "./src/screens/TodoScreen";
 
 export default function App() {
-  const [todoId, setTodoId] = useState(18);
+  const [todoId, setTodoId] = useState(null);
 
-  const [todos, setTodos] = useState([
-    { id: 1, title: "hello world" },
-    { id: 2, title: "hello world" },
-    { id: 15, title: "hello " },
-    { id: 16, title: " world" },
-    { id: 17, title: "hello hello" },
-    { id: 18, title: " whelloorld" },
-  ]);
+  const [todos, setTodos] = useState([{ id: 1, title: "hello world" }]);
 
   const addTodo = (title) => {
     //const newTodo = {
