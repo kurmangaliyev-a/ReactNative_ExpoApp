@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as Font from "expo-font";
-import { StyleSheet, Text, View, Alert, FlatList } from "react-native";
+import { StyleSheet, View, Alert } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import AppLoading from "expo-app-loading";
 
@@ -118,7 +118,7 @@ export default function App() {
   }
   return (
     <View>
-      <Navbar title="Todo App!"></Navbar>
+      <Navbar title="Todo App!!!"></Navbar>
       <View style={styles.container}>{content}</View>
       <StatusBar style="auto" />
     </View>

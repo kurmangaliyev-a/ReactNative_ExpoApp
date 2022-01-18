@@ -1,7 +1,7 @@
 import React from "react";
 import { AddTodo } from "../components/addTodo/AddTodo";
 import { Todo } from "../components/todo/Todo";
-import { StyleSheet, View, FlatList, Image, Text } from "react-native";
+import { StyleSheet, View, FlatList, Image } from "react-native";
 
 export const MainsScreen = ({ addTodo, todos, removeTodo, openTodo }) => {
   let content = (
