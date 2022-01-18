@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { View, StyleSheet, TextInput, Button, Alert } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
 import { THEME } from "../../theme";
 
 export const AddTodo = ({ onSubmit }) => {
@@ -31,7 +32,14 @@ export const AddTodo = ({ onSubmit }) => {
         placeholder="Введите название задачи"
         autoCapitalize="sentences"
       ></TextInput>
-      <Button title="Добавить" onPress={pressHandler}></Button>
+      <AntDesign.Button
+        name="pluscircleo"
+        size={24}
+        color="white"
+        onPress={pressHandler}
+      >
+        Добавить
+      </AntDesign.Button>
     </View>
   );
 };
